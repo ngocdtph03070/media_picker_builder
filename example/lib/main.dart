@@ -6,6 +6,8 @@ import 'package:media_picker_builder/media_picker_builder.dart';
 import 'package:media_picker_builder_example/picker/picker_widget.dart';
 import 'package:permission_handler/permission_handler.dart';
 
+import 'picker/gallery_widget.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
@@ -32,12 +34,13 @@ class _MyAppState extends State<MyApp> {
                 if (!granted) return;
 
                 // To build your own custom picker use this api
-//                MediaPickerBuilder.getAlbums(
-//                  withImages: true,
-//                  withVideos: true,
-//                ).then((albums) {
-//                  print(albums);
-//                });
+              //  MediaPickerBuilder.getAlbums(
+              //    withImages: true,
+              //    withVideos: true,
+              //  ).then((albums) {
+              //    print(albums.first.);
+              //  });
+              // GalleryWidget(mediaFiles: null)
 
                 // If you are happy with the example picker then you use this!
                 _buildPicker();
@@ -57,7 +60,7 @@ class _MyAppState extends State<MyApp> {
           withImages: true,
           withVideos: true,
           onDone: (Set<MediaFile> selectedFiles) {
-            print(selectedFiles);
+            print(selectedFiles.first.path);
             Navigator.pop(context);
           },
           onCancel: () {
